@@ -61,16 +61,16 @@ var Pokemon =  (function (){
 						var sortByValue = sortBy.options[sortBy.selectedIndex].value;
 						species.sort(Pokemon.actions.compareValues(sortByValue));
 
-						document.getElementById('pokemon-list-view').innerHTML = "";
-
 						//get current selected order by value
 						var orderBy = document.getElementById("order-by");
 						var orderByValue = orderBy.options[orderBy.selectedIndex].value;
 						if(orderByValue=='desc')
 							species.reverse();
 
+						document.getElementById('pokemon-list-view').innerHTML = "";
+
 						species.forEach(function(currentValue,index,array) {
-						  Pokemon.showSpecies(currentValue,orderByValue);
+						  Pokemon.showSpecies(currentValue);
 						});
 					}
 					e.preventDefault();
@@ -101,12 +101,6 @@ var Pokemon =  (function (){
 				    }
 
 				    return comparison;
-
-				    /*
-				    return (
-				      (order == 'desc') ? (comparison * -1) : comparison
-				    );
-				    */
 
 				  };
 
